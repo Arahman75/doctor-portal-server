@@ -5,7 +5,7 @@ const cors = require('cors');
 const ObjectId = require('mongodb').ObjectId;
 // const  admin = require("firebase-admin");
 require('dotenv').config();
-const stripe = require('stripe')(process.env.STRIPE_SECRET);
+const stripe = require('stripe')(process.env.STRIPE_SECRET)
 
 const port = process.env.PORT || 5000;
 //doctors-portal-firebase-adminsdk.json
@@ -90,6 +90,20 @@ async function run() {
       // console.log(result);
       res.json(result)
     });
+
+    //update appointments problem code
+// app.put('/appointments/:id', async(req, res)=>{
+//   const id =req.params.id;
+//   const payment = req.body;
+//   const filter = {_id: ObjectId(id)};
+//   const updateDoc ={
+//     $set:{
+//       payment:payment
+//     }
+//   };
+//   const result = await appointmentsCollection.updateOne(filter, updateDoc);
+//   res.json(result);
+// })
 
     app.get('/users/:email', async (req, res) => {
       const email = req.params.email;
